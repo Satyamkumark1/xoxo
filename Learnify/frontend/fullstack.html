@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%233B82F6' d='M12 14l9-5-9-5-9 5 9 5z'/%3E%3Cpath fill='%233B82F6' d='M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z'/%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222'/%3E%3C/svg%3E" />
+    <title>Full Stack Developer Complete Guide | Learniy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/Learnify/frontend/public/styles/fullstack.css">
+  </head>
+  <body>
+    <div id="root">
+      <!-- Header -->
+      <header class="sticky-header">
+        <div class="container header-container">
+          <div class="logo">
+            <div class="logo-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h1 class="logo-text">
+              <span class="text-primary">Learniy</span>
+            </h1>
+          </div>
+          
+          <!-- Desktop Navigation -->
+          <nav class="desktop-nav">
+            <ul class="nav-links">
+              <li><a href="#hero" class="nav-link">Home</a></li>
+              <li><a href="#roadmap" class="nav-link">Roadmap</a></li>
+              <li><a href="#frontend" class="nav-link">Frontend</a></li>
+              <li><a href="#backend" class="nav-link">Backend</a></li>
+              <li><a href="#resources" class="nav-link">Resources</a></li>
+            </ul>
+          </nav>
+          
+          <!-- Mobile Navigation Toggle -->
+          <button id="mobile-menu-toggle" class="mobile-menu-toggle">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="mobile-menu">
+          <nav class="container">
+            <ul class="mobile-nav-links">
+              <li><a href="#hero" class="mobile-nav-link">Home</a></li>
+              <li><a href="#roadmap" class="mobile-nav-link">Roadmap</a></li>
+              <li><a href="#frontend" class="mobile-nav-link">Frontend</a></li>
+              <li><a href="#backend" class="mobile-nav-link">Backend</a></li>
+              <li><a href="#resources" class="mobile-nav-link">Resources</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <!-- Hero Section -->
+      <section id="hero" class="hero-section">
+        <div class="container">
+          <div class="hero-content">
+            <div class="hero-text">
+              <span class="badge">Learning Path</span>
+              <h1 class="hero-title">
+                Full Stack Developer <span class="text-primary">Complete Guide</span>
+              </h1>
+              <p class="hero-description">
+                Master both frontend and backend technologies to become a versatile developer. Follow our structured roadmap to achieve your goals.
+              </p>
+              <div class="hero-buttons">
+                <a href="#roadmap" class="btn btn-primary">View Roadmap</a>
+                <a href="#resources" class="btn btn-secondary">Explore Resources</a>
+              </div>
+            </div>
+            <div class="hero-image">
+              <img 
+                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=500&q=80" 
+                alt="Developer coding on computer" 
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section class="features-section">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Why Learn Full Stack Development?</h2>
+            <p class="section-description">
+              Become a versatile developer capable of handling all aspects of web application development.
+            </p>
+          </div>
+          
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-money-bill-wave"></i>
+              </div>
+              <h3 class="feature-title">Higher Salary</h3>
+              <p class="feature-description">
+                Full stack developers typically earn more due to their versatile skill set.
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-briefcase"></i>
+              </div>
+              <h3 class="feature-title">Job Opportunities</h3>
+              <p class="feature-description">
+                Increased demand for developers who can work across the entire tech stack.
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-project-diagram"></i>
+              </div>
+              <h3 class="feature-title">Build Complete Projects</h3>
+              <p class="feature-description">
+                Create entire applications independently from start to finish.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Roadmap Section -->
+      <section id="roadmap" class="roadmap-section">
+        <div class="container">
+          <div class="section-header">
+            <span class="badge">Learning Path</span>
+            <h2 class="section-title">Full Stack Developer Roadmap</h2>
+            <p class="section-description">
+              Follow this structured path to become a proficient full stack developer.
+            </p>
+          </div>
+          
+          <div class="roadmap-container">
+            <!-- Timeline indicator for desktop -->
+            <div class="timeline-indicator"></div>
+            
+            <div class="roadmap-items">
+              <!-- Roadmap Item 1 -->
+              <div class="roadmap-item">
+                <div class="roadmap-content roadmap-right">
+                  <div class="roadmap-card">
+                    <div class="roadmap-header">
+                      <h3 class="roadmap-title">Fundamentals</h3>
+                      <span class="roadmap-number">1</span>
+                    </div>
+                    <p class="roadmap-description">
+                      Start with the building blocks that every developer should know.
+                    </p>
+                    <ul class="roadmap-list">
+                      <li>HTML5 & CSS3 basics</li>
+                      <li>JavaScript fundamentals</li>
+                      <li>Programming logic & algorithms</li>
+                      <li>Git version control</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="timeline-point"></div>
+                <div class="roadmap-spacer"></div>
+              </div>
+
+              <!-- Roadmap Item 2 -->
+              <div class="roadmap-item">
+                <div class="roadmap-spacer"></div>
+                <div class="timeline-point"></div>
+                <div class="roadmap-content roadmap-left">
+                  <div class="roadmap-card">
+                    <div class="roadmap-header">
+                      <span class="roadmap-number">2</span>
+                      <h3 class="roadmap-title">Frontend Development</h3>
+                    </div>
+                    <p class="roadmap-description">
+                      Learn to build interactive user interfaces and experiences.
+                    </p>
+                    <ul class="roadmap-list">
+                      <li>Advanced CSS & CSS frameworks</li>
+                      <li>JavaScript ES6+ & DOM manipulation</li>
+                      <li>Frontend frameworks (React, Vue, Angular)</li>
+                      <li>Responsive design principles</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Roadmap Item 3 -->
+              <div class="roadmap-item">
+                <div class="roadmap-content roadmap-right">
+                  <div class="roadmap-card">
+                    <div class="roadmap-header">
+                      <h3 class="roadmap-title">Backend Development</h3>
+                      <span class="roadmap-number">3</span>
+                    </div>
+                    <p class="roadmap-description">
+                      Master server-side logic and data management.
+                    </p>
+                    <ul class="roadmap-list">
+                      <li>Backend language (Node.js, Python, etc.)</li>
+                      <li>RESTful API development</li>
+                      <li>Database design & management</li>
+                      <li>Authentication & authorization</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="timeline-point"></div>
+                <div class="roadmap-spacer"></div>
+              </div>
+
+              <!-- Roadmap Item 4 -->
+              <div class="roadmap-item">
+                <div class="roadmap-spacer"></div>
+                <div class="timeline-point"></div>
+                <div class="roadmap-content roadmap-left">
+                  <div class="roadmap-card">
+                    <div class="roadmap-header">
+                      <span class="roadmap-number">4</span>
+                      <h3 class="roadmap-title">DevOps & Deployment</h3>
+                    </div>
+                    <p class="roadmap-description">
+                      Learn to deploy and maintain your applications.
+                    </p>
+                    <ul class="roadmap-list">
+                      <li>Cloud platforms (AWS, Azure, GCP)</li>
+                      <li>CI/CD pipelines</li>
+                      <li>Containerization (Docker)</li>
+                      <li>Security best practices</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Roadmap Item 5 -->
+              <div class="roadmap-item">
+                <div class="roadmap-content roadmap-right">
+                  <div class="roadmap-card">
+                    <div class="roadmap-header">
+                      <h3 class="roadmap-title">Advanced Concepts</h3>
+                      <span class="roadmap-number">5</span>
+                    </div>
+                    <p class="roadmap-description">
+                      Extend your knowledge with specialized skills.
+                    </p>
+                    <ul class="roadmap-list">
+                      <li>GraphQL & WebSockets</li>
+                      <li>Progressive Web Apps</li>
+                      <li>Microservices architecture</li>
+                      <li>Testing & performance optimization</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="timeline-point"></div>
+                <div class="roadmap-spacer"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Frontend Section -->
+      <section id="frontend" class="frontend-section">
+        <div class="container">
+          <div class="section-header">
+            <span class="badge">Frontend Development</span>
+            <h2 class="section-title">Building User Interfaces</h2>
+            <p class="section-description">
+              Learn how to create engaging and responsive web interfaces.
+            </p>
+          </div>
+          
+          <div class="tech-grid">
+            <!-- HTML5 Card -->
+            <div class="tech-card">
+              <div class="tech-card-header html"></div>
+              <div class="tech-card-content">
+                <h3 class="tech-title">
+                  <i class="fab fa-html5 text-red-500"></i>
+                  HTML5
+                </h3>
+                <p class="tech-description">The backbone of web development, creating structure and content.</p>
+                <ul class="tech-features">
+                  <li><i class="fas fa-check-circle"></i> Semantic elements</li>
+                  <li><i class="fas fa-check-circle"></i> Forms and validation</li>
+                  <li><i class="fas fa-check-circle"></i> Accessibility practices</li>
+                </ul>
+              </div>
+            </div>
+            
+            <!-- CSS3 Card -->
+            <div class="tech-card">
+              <div class="tech-card-header css"></div>
+              <div class="tech-card-content">
+                <h3 class="tech-title">
+                  <i class="fab fa-css3-alt text-blue-500"></i>
+                  CSS3
+                </h3>
+                <p class="tech-description">Style and design your web pages with modern techniques.</p>
+                <ul class="tech-features">
+                  <li><i class="fas fa-check-circle"></i> Flexbox & Grid layouts</li>
+                  <li><i class="fas fa-check-circle"></i> Responsive design</li>
+                  <li><i class="fas fa-check-circle"></i> CSS animations</li>
+                </ul>
+              </div>
+            </div>
+            
+            <!-- JavaScript Card -->
+            <div class="tech-card">
+              <div class="tech-card-header js"></div>
+              <div class="tech-card-content">
+                <h3 class="tech-title">
+                  <i class="fab fa-js text-yellow-500"></i>
+                  JavaScript
+                </h3>
+                <p class="tech-description">Add interactivity and dynamic behavior to your websites.</p>
+                <ul class="tech-features">
+                  <li><i class="fas fa-check-circle"></i> ES6+ features</li>
+                  <li><i class="fas fa-check-circle"></i> DOM manipulation</li>
+                  <li><i class="fas fa-check-circle"></i> Async programming</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="subsection">
+            <h3 class="subsection-title">Frontend Frameworks</h3>
+            <div class="framework-grid">
+              <!-- React Card -->
+              <div class="framework-card react-gradient">
+                <div class="framework-header">
+                  <i class="fab fa-react"></i>
+                  <h4 class="framework-title">React</h4>
+                </div>
+                <p class="framework-description">
+                  A JavaScript library for building user interfaces with a component-based architecture.
+                </p>
+                <div class="framework-tags">
+                  <span class="tag react-tag">Components</span>
+                  <span class="tag react-tag">JSX</span>
+                  <span class="tag react-tag">Hooks</span>
+                </div>
+              </div>
+              
+              <!-- Vue.js Card -->
+              <div class="framework-card vue-gradient">
+                <div class="framework-header">
+                  <i class="fab fa-vuejs"></i>
+                  <h4 class="framework-title">Vue.js</h4>
+                </div>
+                <p class="framework-description">
+                  Progressive JavaScript framework for building UIs with an approachable learning curve.
+                </p>
+                <div class="framework-tags">
+                  <span class="tag vue-tag">Templates</span>
+                  <span class="tag vue-tag">Directives</span>
+                  <span class="tag vue-tag">Composition API</span>
+                </div>
+              </div>
+              
+              <!-- Angular Card -->
+              <div class="framework-card angular-gradient">
+                <div class="framework-header">
+                  <i class="fab fa-angular"></i>
+                  <h4 class="framework-title">Angular</h4>
+                </div>
+                <p class="framework-description">
+                  Platform and framework for building single-page client applications using TypeScript.
+                </p>
+                <div class="framework-tags">
+                  <span class="tag angular-tag">TypeScript</span>
+                  <span class="tag angular-tag">RxJS</span>
+                  <span class="tag angular-tag">Services</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Backend Section -->
+      <section id="backend" class="backend-section">
+        <div class="container">
+          <div class="section-header">
+            <span class="badge">Backend Development</span>
+            <h2 class="section-title">Server-Side Technologies</h2>
+            <p class="section-description">
+              Master the technologies that power the server side of web applications.
+            </p>
+          </div>
+          
+          <div class="backend-grid">
+            <!-- Languages Column -->
+            <div class="backend-card">
+              <h3 class="backend-card-title">Backend Languages</h3>
+              
+              <div class="backend-items">
+                <!-- Node.js -->
+                <div class="backend-item">
+                  <div class="backend-icon bg-green-100">
+                    <i class="fab fa-node-js text-green-600"></i>
+                  </div>
+                  <div class="backend-content">
+                    <h4 class="backend-item-title">Node.js</h4>
+                    <p class="backend-item-description">
+                      JavaScript runtime built on Chrome's V8 JavaScript engine for building server-side applications.
+                    </p>
+                  </div>
+                </div>
+                
+                <!-- Python -->
+                <div class="backend-item">
+                  <div class="backend-icon bg-blue-100">
+                    <i class="fab fa-python text-blue-600"></i>
+                  </div>
+                  <div class="backend-content">
+                    <h4 class="backend-item-title">Python</h4>
+                    <p class="backend-item-description">
+                      Versatile language with frameworks like Django and Flask for web development.
+                    </p>
+                  </div>
+                </div>
+                
+                <!-- Java -->
+                <div class="backend-item">
+                  <div class="backend-icon bg-orange-100">
+                    <i class="fab fa-java text-orange-600"></i>
+                  </div>
+                  <div class="backend-content">
+                    <h4 class="backend-item-title">Java</h4>
+                    <p class="backend-item-description">
+                      Powerful enterprise-grade language with Spring framework for robust applications.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Databases Column -->
+            <div class="backend-card">
+              <h3 class="backend-card-title">Databases</h3>
+              
+              <div class="backend-items">
+                <!-- SQL Databases -->
+                <div class="backend-item">
+                  <div class="backend-icon bg-blue-100">
+                    <i class="fas fa-database text-blue-600"></i>
+                  </div>
+                  <div class="backend-content">
+                    <h4 class="backend-item-title">SQL Databases</h4>
+                    <p class="backend-item-description">
+                      Relational databases like MySQL, PostgreSQL, and SQL Server for structured data.
+                    </p>
+                    <div class="db-tags">
+                      <span class="db-tag sql-tag">MySQL</span>
+                      <span class="db-tag sql-tag">PostgreSQL</span>
+                      <span class="db-tag sql-tag">SQLite</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- NoSQL Databases -->
+                <div class="backend-item">
+                  <div class="backend-icon bg-green-100">
+                    <i class="fas fa-leaf text-green-600"></i>
+                  </div>
+                  <div class="backend-content">
+                    <h4 class="backend-item-title">NoSQL Databases</h4>
+                    <p class="backend-item-description">
+                      Non-relational databases for flexible schema and scalable applications.
+                    </p>
+                    <div class="db-tags">
+                      <span class="db-tag nosql-tag">MongoDB</span>
+                      <span class="db-tag nosql-tag">Redis</span>
+                      <span class="db-tag nosql-tag">Firebase</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="concepts-card">
+            <h3 class="backend-card-title">Backend Concepts</h3>
+            
+            <div class="concepts-grid">
+              <!-- API Development -->
+              <div class="concept-item">
+                <div class="concept-header">
+                  <div class="concept-icon bg-indigo-100">
+                    <i class="fas fa-plug text-indigo-600"></i>
+                  </div>
+                  <h4 class="concept-title">API Development</h4>
+                </div>
+                <p class="concept-description">
+                  Create RESTful and GraphQL APIs for client-server communication.
+                </p>
+              </div>
+              
+              <!-- Authentication -->
+              <div class="concept-item">
+                <div class="concept-header">
+                  <div class="concept-icon bg-yellow-100">
+                    <i class="fas fa-lock text-yellow-600"></i>
+                  </div>
+                  <h4 class="concept-title">Authentication</h4>
+                </div>
+                <p class="concept-description">
+                  Implement secure user authentication with JWT, OAuth, and sessions.
+                </p>
+              </div>
+              
+              <!-- Architecture -->
+              <div class="concept-item">
+                <div class="concept-header">
+                  <div class="concept-icon bg-red-100">
+                    <i class="fas fa-server text-red-600"></i>
+                  </div>
+                  <h4 class="concept-title">Architecture</h4>
+                </div>
+                <p class="concept-description">
+                  Design scalable server architectures with microservices patterns.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Resources Section -->
+      <section id="resources" class="resources-section">
+        <div class="container">
+          <div class="section-header">
+            <span class="badge">Learning Materials</span>
+            <h2 class="section-title">Resources & Tools</h2>
+            <p class="section-description">
+              Curated resources to help you on your full stack developer journey.
+            </p>
+          </div>
+          
+          <div class="resources-grid">
+            <!-- Online Courses -->
+            <div class="resource-card">
+              <div class="resource-header purple-gradient"></div>
+              <div class="resource-content">
+                <h3 class="resource-title">
+                  <i class="fas fa-graduation-cap text-purple-500"></i>
+                  Online Courses
+                </h3>
+                <ul class="resource-links">
+                  <li><i class="fas fa-link"></i> <a href="#">The Web Developer Bootcamp</a></li>
+                  <li><i class="fas fa-link"></i> <a href="#">JavaScript: Understanding the Weird Parts</a></li>
+                  <li><i class="fas fa-link"></i> <a href="#">React - The Complete Guide</a></li>
+                  <li><i class="fas fa-link"></i> <a href="#">Node.js: The Complete Guide</a></li>
+                </ul>
+              </div>
+            </div>
+            
+            <!-- Documentation -->
+            <div class="resource-card">
+              <div class="resource-header blue-gradient"></div>
+              <div class="resource-content">
+                <h3 class="resource-title">
+                  <i class="fas fa-book text-blue-500"></i>
+                  Documentation
+                </h3>
+                <ul class="resource-links">
+                  <li><i class="fas fa-link"></i> <a href="#">MDN Web Docs</a></li>
+                  <li><i class="fas fa-link"></i> <a href="#">React Documentation</a></li>
+                  <li><i class="fas fa-link"></i> <a href="#">Node.js Documentation</a></li>
+                  <li><i class="fas fa-link"></i> <a href="#">Express.js Guide</a></li>
+                </ul>
+              </div>
+            </div>
+            
+            <!-- YouTube Channels -->
+            <div class="resource-card">
+              <div class="resource-header red-gradient"></div>
+              <div class="resource-content">
+                <h3 class="resource-title">
+                  <i class="fab fa-youtube text-red-500"></i>
+                  YouTube Channels
+                </h3>
+                <ul class="resource-links">
+                  <li><i class="fas fa-link"></i> <a href="#">Traversy Media</a></li>
+                  <li><i class="fas fa-link"></i> <a href="#">The Net Ninja</a></li>
+                  <li><i class="fas fa-link"></i> <a href="#">Web Dev Simplified</a></li>
+                  <li><i class="fas fa-link"></i> <a href="#">freeCodeCamp</a></li>
+                </ul>
+              </div>
+            </div>
+            
+            <!-- Books -->
+            <div class="resource-card">
+              <div class="resource-header green-gradient"></div>
+              <div class="resource-content">
+                <h3 class="resource-title">
+                  <i class="fas fa-book-open text-green-500"></i>
+                  Books
+                </h3>
+                <ul class="resource-links">
+                  <li><i class="fas fa-link"></i> <a href="#">Eloquent JavaScript</a></li>
+                  <li><i class="fas fa-link"></i> <a href="#">You Don't Know JS</a></li>
+                  <li><i class="fas fa-link"></i> <a href="#">Clean Code</a></li>
+                  <li><i class="fas fa-link"></i> <a href="#">Learning React</a></li>
+                </ul>
+              </div>
+            </div>
+            
+            <!-- Communities -->
+            <div class="resource-card">
+              <div class="resource-header yellow-gradient"></div>
+              <div class="resource-content">
+                <h3 class="resource-title">
+                  <i class="fas fa-users text-yellow-500"></i>
+                  Communities
+                </h3>
+                <ul class="resource-links">
+                  <li><i class="fas fa-link"></i> <a href="#">Stack Overflow</a></li>
+                  <li><i class="fas fa-link"></i> <a href="#">Dev.to</a></li>
+                  <li><i class="fas fa-link"></i> <a href="#">freeCodeCamp Forums</a></li>
+                  <li><i class="fas fa-link"></i> <a href="#">Reddit Web Dev</a></li>
+                </ul>
+              </div>
+            </div>
+            
+            <!-- Developer Tools -->
+            <div class="resource-card">
+              <div class="resource-header gray-gradient"></div>
+              <div class="resource-content">
+                <h3 class="resource-title">
+                  <i class="fas fa-tools text-gray-500"></i>
+                  Developer Tools
+                </h3>
+                <ul class="resource-links">
+                  <li><i class="fas fa-link"></i> <a href="#">Visual Studio Code</a></li>
+                  <li><i class="fas fa-link"></i> <a href="#">GitHub</a></li>
+                  <li><i class="fas fa-link"></i> <a href="#">Postman</a></li>
+                  <li><i class="fas fa-link"></i> <a href="#">Chrome DevTools</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Call to Action Section -->
+      <section class="cta-section">
+        <div class="container">
+          <h2 class="cta-title">Ready to Become a Full Stack Developer?</h2>
+          <p class="cta-description">
+            Start your journey today with our comprehensive learning path and resources.
+          </p>
+          <a href="#roadmap" class="btn btn-white">Begin Your Journey</a>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="container">
+          <div class="footer-content">
+            <div class="footer-info">
+              <div class="footer-logo">
+                <div class="logo-icon">
+                  <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h2 class="logo-text">
+                  <span class="text-primary">Learniy</span>
+                </h2>
+              </div>
+              <p class="footer-description">
+                Comprehensive learning platform for aspiring full stack developers. Follow our structured roadmap to achieve your goals.
+              </p>
+            </div>
+            
+            <div class="footer-links-container">
+              <div class="footer-links-column">
+                <h3 class="footer-links-title">Quick Links</h3>
+                <ul class="footer-links">
+                  <li><a href="#hero" class="footer-link">Home</a></li>
+                  <li><a href="#roadmap" class="footer-link">Roadmap</a></li>
+                  <li><a href="#frontend" class="footer-link">Frontend</a></li>
+                  <li><a href="#backend" class="footer-link">Backend</a></li>
+                </ul>
+              </div>
+              
+              <div class="footer-links-column">
+                <h3 class="footer-links-title">Resources</h3>
+                <ul class="footer-links">
+                  <li><a href="#" class="footer-link">Tutorials</a></li>
+                  <li><a href="#" class="footer-link">Documentation</a></li>
+                  <li><a href="#" class="footer-link">Community</a></li>
+                  <li><a href="#" class="footer-link">FAQ</a></li>
+                </ul>
+              </div>
+              
+              <div class="footer-links-column">
+                <h3 class="footer-links-title">Connect</h3>
+                <div class="social-links">
+                  <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                  <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                  <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                  <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="footer-bottom">
+            <p class="copyright">
+              &copy; <span id="current-year"></span> Learniy. All rights reserved. Full Stack Developer Complete Guide.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="/Learnify/frontend/src/pages/FullStack.js"></script>
+  </body>
+</html>

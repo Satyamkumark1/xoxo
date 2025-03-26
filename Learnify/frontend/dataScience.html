@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Science Complete Roadmap</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/Learnify/frontend/public/styles/dataScience.css">
+</head>
+<body class="font-sans bg-gray-50 text-gray-800">
+    <!-- Header Component -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-primary">
+                <span class="hidden md:inline">Data Science</span> Complete Roadmap
+            </h1>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-6">
+                    <li><a href="#introduction" class="text-gray-600 hover:text-primary transition">Introduction</a></li>
+                    <li><a href="#beginner" class="text-gray-600 hover:text-primary transition">Beginner</a></li>
+                    <li><a href="#intermediate" class="text-gray-600 hover:text-primary transition">Intermediate</a></li>
+                    <li><a href="#advanced" class="text-gray-600 hover:text-primary transition">Advanced</a></li>
+                    <li><a href="#resources" class="text-gray-600 hover:text-primary transition">All Resources</a></li>
+                </ul>
+            </nav>
+            <button class="md:hidden text-gray-600" id="mobile-menu-btn">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="container mx-auto px-4 py-2">
+                <ul class="space-y-2">
+                    <li><a href="#introduction" class="block py-2 text-gray-600 hover:text-primary transition mobile-link">Introduction</a></li>
+                    <li><a href="#beginner" class="block py-2 text-gray-600 hover:text-primary transition mobile-link">Beginner</a></li>
+                    <li><a href="#intermediate" class="block py-2 text-gray-600 hover:text-primary transition mobile-link">Intermediate</a></li>
+                    <li><a href="#advanced" class="block py-2 text-gray-600 hover:text-primary transition mobile-link">Advanced</a></li>
+                    <li><a href="#resources" class="block py-2 text-gray-600 hover:text-primary transition mobile-link">All Resources</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-indigo-700 to-blue-600 text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Data Science Complete Roadmap</h1>
+                <p class="text-xl opacity-90 mb-8">Your comprehensive guide to becoming a data scientist with free resources at every step</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#beginner" class="bg-white text-primary font-medium py-2 px-6 rounded-lg shadow-md hover:shadow-lg transition">Start Learning</a>
+                    <a href="#resources" class="bg-transparent border-2 border-white text-white font-medium py-2 px-6 rounded-lg hover:bg-white hover:text-primary transition">Browse Resources</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section id="introduction" class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-8">What is Data Science?</h2>
+                <div class="prose max-w-none">
+                    <p class="text-lg text-gray-600 mb-6">
+                        Data Science is an interdisciplinary field that uses scientific methods, processes, algorithms and systems to extract knowledge and insights from structured and unstructured data. Data Scientists combine skills from computer science, statistics, and domain expertise to analyze and interpret complex data.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-6">
+                        This roadmap will guide you through the essential skills and knowledge needed to become a successful data scientist, from foundational concepts to advanced techniques, with free resources at every step.
+                    </p>
+                </div>
+
+                <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Why Learn Data Science -->
+                    <div class="bg-gray-50 rounded-lg p-6 shadow-sm">
+                        <div class="text-primary mb-4">
+                            <i class="fas fa-chart-line text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Why Learn Data Science?</h3>
+                        <p class="text-gray-600">High demand, lucrative career opportunities, and the ability to solve complex problems across industries.</p>
+                    </div>
+
+                    <!-- How to Use This Roadmap -->
+                    <div class="bg-gray-50 rounded-lg p-6 shadow-sm">
+                        <div class="text-primary mb-4">
+                            <i class="fas fa-map-signs text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">How to Use This Roadmap</h3>
+                        <p class="text-gray-600">Follow the learning path sequentially, or jump to specific sections based on your current skill level.</p>
+                    </div>
+
+                    <!-- Learning Approach -->
+                    <div class="bg-gray-50 rounded-lg p-6 shadow-sm">
+                        <div class="text-primary mb-4">
+                            <i class="fas fa-graduation-cap text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Learning Approach</h3>
+                        <p class="text-gray-600">Balance theory with practical projects. Build a portfolio as you learn to showcase your skills to employers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Navigation -->
+    <section class="py-6 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-center">
+                <div class="inline-flex rounded-md shadow-sm" role="group">
+                    <a href="#beginner" class="px-6 py-2 text-sm font-medium bg-white text-primary border border-primary rounded-l-lg hover:bg-gray-50 focus:z-10 focus:ring-2 focus:ring-primary">
+                        Beginner
+                    </a>
+                    <a href="#intermediate" class="px-6 py-2 text-sm font-medium bg-white text-primary border-t border-b border-primary hover:bg-gray-50 focus:z-10 focus:ring-2 focus:ring-primary">
+                        Intermediate
+                    </a>
+                    <a href="#advanced" class="px-6 py-2 text-sm font-medium bg-white text-primary border border-primary rounded-r-lg hover:bg-gray-50 focus:z-10 focus:ring-2 focus:ring-primary">
+                        Advanced
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Sections -->
+    <div id="roadmap-content">
+        <!-- Beginner Level - will be filled by JavaScript -->
+        <section id="beginner" class="roadmap-section py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-4">Beginner Level</h2>
+                <p class="text-lg text-gray-600 text-center mb-12 max-w-3xl mx-auto">
+                    Master the fundamentals of programming, statistics, and data manipulation to build a solid foundation for your data science journey.
+                </p>
+
+                <div class="max-w-5xl mx-auto" id="beginner-content">
+                    <!-- Content will be loaded by JavaScript -->
+                </div>
+
+                <div class="text-center mt-10">
+                    <a href="#intermediate" class="inline-flex items-center font-medium text-primary hover:text-indigo-800">
+                        Continue to Intermediate Level
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Intermediate Level - will be filled by JavaScript -->
+        <section id="intermediate" class="roadmap-section py-16 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-4">Intermediate Level</h2>
+                <p class="text-lg text-gray-600 text-center mb-12 max-w-3xl mx-auto">
+                    Dive deeper into machine learning algorithms, database skills, and specialized techniques to analyze more complex data.
+                </p>
+
+                <div class="max-w-5xl mx-auto" id="intermediate-content">
+                    <!-- Content will be loaded by JavaScript -->
+                </div>
+
+                <div class="text-center mt-10">
+                    <a href="#advanced" class="inline-flex items-center font-medium text-primary hover:text-indigo-800">
+                        Continue to Advanced Level
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Advanced Level - will be filled by JavaScript -->
+        <section id="advanced" class="roadmap-section py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-4">Advanced Level</h2>
+                <p class="text-lg text-gray-600 text-center mb-12 max-w-3xl mx-auto">
+                    Master advanced techniques in deep learning, natural language processing, and specialized domains to become a top-tier data scientist.
+                </p>
+
+                <div class="max-w-5xl mx-auto" id="advanced-content">
+                    <!-- Content will be loaded by JavaScript -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    
+
+    Progress Tracking
+    <section class="py-12 bg-primary bg-gradient-to-r from-indigo-700 to-indigo-800 text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-2xl font-bold mb-6">Track Your Data Science Journey</h2>
+                <p class="text-lg mb-8 opacity-90">Use our simple checklist to track your progress through the roadmap.</p>
+                
+                <div class="bg-white/10 rounded-lg p-6 backdrop-blur-sm">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Beginner Progress -->
+                        <div>
+                            <h3 class="font-semibold text-lg mb-3">Beginner</h3>
+                            <div class="space-y-2 text-left" id="beginner-progress">
+                                <!-- Will be loaded by JavaScript -->
+                            </div>
+                        </div>
+                        
+                        <!-- Intermediate Progress -->
+                        <div>
+                            <h3 class="font-semibold text-lg mb-3">Intermediate</h3>
+                            <div class="space-y-2 text-left" id="intermediate-progress">
+                                <!-- Will be loaded by JavaScript -->
+                            </div>
+                        </div>
+                        
+                        <!-- Advanced Progress -->
+                        <div>
+                            <h3 class="font-semibold text-lg mb-3">Advanced</h3>
+                            <div class="space-y-2 text-left" id="advanced-progress">
+                                <!-- Will be loaded by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4">Join the Data Science Community</h2>
+            <p class="text-lg text-gray-600 text-center mb-12 max-w-3xl mx-auto">Connect with fellow learners, find mentors, and stay updated with the latest in data science.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="text-center">
+                    <div class="bg-blue-50 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                        <i class="fab fa-discord text-4xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Discord Community</h3>
+                    <p class="text-gray-600 mb-4">Join our active Discord server to discuss projects, share resources, and get help.</p>
+                    <a href="https://discord.gg/datascience" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-primary font-medium hover:text-indigo-800">
+                        Join Discord
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                    </a>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-red-50 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                        <i class="fab fa-youtube text-4xl text-red-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">YouTube Channel</h3>
+                    <p class="text-gray-600 mb-4">Watch tutorials, code-alongs, and interviews with data science professionals.</p>
+                    <a href="https://youtube.com/c/datascience" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-primary font-medium hover:text-indigo-800">
+                        Subscribe
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                    </a>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-indigo-50 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                        <i class="fab fa-github text-4xl text-indigo-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">GitHub Repository</h3>
+                    <p class="text-gray-600 mb-4">Access code examples, notebooks, and contribute to our open-source projects.</p>
+                    <a href="https://github.com/datascience-roadmap" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-primary font-medium hover:text-indigo-800">
+                        Explore GitHub
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-10">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Data Science Roadmap</h3>
+                    <p class="text-gray-400">A comprehensive guide to becoming a data scientist with free resources.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Roadmap</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#beginner" class="hover:text-white transition">Beginner</a></li>
+                        <li><a href="#intermediate" class="hover:text-white transition">Intermediate</a></li>
+                        <li><a href="#advanced" class="hover:text-white transition">Advanced</a></li>
+                        <li><a href="#resources" class="hover:text-white transition">Resources</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#resources" class="hover:text-white transition">Courses</a></li>
+                        <li><a href="#resources" class="hover:text-white transition">Books</a></li>
+                        <li><a href="#resources" class="hover:text-white transition">Tutorials</a></li>
+                        <li><a href="#resources" class="hover:text-white transition">Tools</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Connect</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">Subscribe to Newsletter</a></li>
+                        <li><a href="https://github.com/datascience-roadmap" class="hover:text-white transition">GitHub</a></li>
+                        <li><a href="https://discord.gg/datascience" class="hover:text-white transition">Discord</a></li>
+                        <li><a href="mailto:contact@dsroadmap.com" class="hover:text-white transition">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 mt-8 border-t border-gray-700 text-center text-gray-400 text-sm">
+                <p id="copyright"></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JavaScript -->
+   <script src="/Learnify/frontend/src/pages/datascience_main.js"></script>
+   <script src="/Learnify/frontend/src/pages/dataScience_data.js"></script>
+</body>
+</html>
