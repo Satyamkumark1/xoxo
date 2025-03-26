@@ -6,7 +6,7 @@ const categories = [
       quote: "Master the MERN & MEAN stack!",
       tag: "Web Development",
       tagClass: "web-tag",
-      link: "/fullstack",
+      link: "./fullstack.html",
       linkClass: "web-link"
     },
     {
@@ -16,7 +16,7 @@ const categories = [
       quote: "CI/CD, Cloud, and Kubernetes!",
       tag: "Operations",
       tagClass: "devops-tag",
-      link: "/devOps",
+      link: "./devOps.html",
       linkClass: "devops-link"
     },
     {
@@ -26,7 +26,7 @@ const categories = [
       quote: "Machine Learning & AI!",
       tag: "Data",
       tagClass: "data-tag",
-      link: "/dataScience",
+      link: "./dataScience.html",
       linkClass: "data-link"
     },
     {
@@ -36,7 +36,7 @@ const categories = [
       quote: "Turn data into insights!",
       tag: "Analytics",
       tagClass: "analytics-tag",
-      link: "/dataAnalysis",
+      link: "./dataAnalysis.html",
       linkClass: "analytics-link"
     }
   ];

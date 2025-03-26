@@ -160,11 +160,31 @@
     height: 4rem;
   }
   
+  .logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .logo-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-600);
+  }
+  
+  .nav-logo-svg {
+    width: 28px;
+    height: 28px;
+  }
+  
   .logo {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
     font-size: 1.5rem;
     color: var(--primary-600);
+    display: flex;
+    align-items: center;
   }
   
   .nav-links {

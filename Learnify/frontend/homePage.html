@@ -7,13 +7,22 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/public/styles/homePage.css">
+  <link rel="stylesheet" href="./public/styles/homePage.css">
 </head>
 <body>
   <nav class="navbar">
     <div class="container">
       <div class="navbar-content">
-        <a href="#" class="logo">Learnify</a>
+        <div class="logo-wrapper">
+          <div class="logo-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="nav-logo-svg">
+              <path fill="currentColor" d="M12 14l9-5-9-5-9 5 9 5z"/>
+              <path fill="currentColor" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"/>
+            </svg>
+          </div>
+          <a href="#" class="logo">Learnify</a>
+        </div>
         <div class="nav-links">
           <a href="/" class="nav-link active">Home</a>
           <a href="/fullstack" class="nav-link">Fullstack</a>
@@ -229,7 +238,7 @@
     </div>
   </div>
 
-  <script src="/src/pages/homePage.js"></script>
+  <script src="./src/pages/homePage.js"></script>
 
   <script>
      // Example of connecting to backend API

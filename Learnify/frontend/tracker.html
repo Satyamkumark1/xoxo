@@ -4,10 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Learnify - Progress Tracker</title>
-  <link rel="stylesheet" href="/Learnify/frontend/public/styles/tracker.css">
+  <link rel="stylesheet" href="./public/styles/tracker.css">
 </head>
 <body>
   <div class="app">
+    <!-- Add Navigation -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-content">
+          <a href="./homePage.html" class="logo">Learnify</a>
+          <div class="nav-links">
+            <a href="./homePage.html" class="nav-link">Home</a>
+            <a href="./tracker.html" class="nav-link active">Progress Tracker</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
     <!-- Header -->
     <header class="header">
       <div class="container">
@@ -66,7 +79,6 @@
     </div>
   </template>
 
-  <script src="/Learnify/frontend/src/pages/tracker.js"></script>
-  <script src="/Learnify/backend/server.js"></script>
+  <script src="./src/pages/tracker.js"></script>
 </body>
 </html>

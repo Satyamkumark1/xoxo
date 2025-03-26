@@ -1,157 +1,152 @@
-// Simple Express server to serve the API endpoints
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
+const mongoose = require('mongoose');
+const jwt = require('jsonwebtoken');
+const User = require('./models/User');
+const auth = require('./middleware/auth');
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Connect to MongoDB
+mongoose.connect(process.env.MONGODB_URI)
+  .then(() => console.log('Connected to MongoDB'))
+  .catch(err => console.error('MongoDB connection error:', err));
+
 // Middleware
-app.use(cors()); // Enable CORS for all routes
+app.use(cors());
 app.use(express.json());
 
-// Serve static files from frontend directory
+// Serve static files from the frontend directory
 app.use(express.static(path.join(__dirname, '../frontend')));
 
-// In-memory storage
-class Storage {
-  constructor() {
-    this.users = new Map();
-    this.courses = new Map();
-    this.progress = new Map();
-    
-    // Initialize with default courses
-    this.initDefaultCourses();
-  }
-  
-  initDefaultCourses() {
-    const defaultCourses = [
-      { id: 1, name: 'Web Development Fundamentals', defaultProgress: 0 },
-      { id: 2, name: 'JavaScript Advanced Concepts', defaultProgress: 0 },
-      { id: 3, name: 'React Framework Mastery', defaultProgress: 0 },
-      { id: 4, name: 'Backend Development with Node.js', defaultProgress: 0 }
-    ];
-    
-    defaultCourses.forEach(course => {
-      const id = course.id;
-      const newCourse = { id, name: course.name };
-      this.courses.set(id, newCourse);
-      
-      // Initialize progress
-      const newProgress = {
-        id,
-        courseId: id,
-        percentage: course.defaultProgress || 0
-      };
-      this.progress.set(id, newProgress);
+// Auth Routes
+app.post('/api/auth/signup', async (req, res) => {
+  try {
+    const { username, email, password } = req.body;
+
+    // Check if user already exists
+    const existingUser = await User.findOne({ 
+      $or: [{ email }, { username }] 
     });
-  }
-  
-  getAllCourses() {
-    return Array.from(this.courses.values());
-  }
-  
-  getProgress(courseId) {
-    return this.progress.get(courseId);
-  }
-  
-  updateProgress(courseId, percentage) {
-    const existingProgress = this.progress.get(courseId);
     
-    if (!existingProgress) {
-      const newProgress = {
-        id: courseId,
-        courseId,
-        percentage
-      };
-      this.progress.set(courseId, newProgress);
-      return newProgress;
+    if (existingUser) {
+      return res.status(400).json({ 
+        error: 'Username or email already exists' 
+      });
     }
-    
-    const updatedProgress = {
-      ...existingProgress,
-      percentage
-    };
-    
-    this.progress.set(courseId, updatedProgress);
-    return updatedProgress;
+
+    // Create new user
+    const user = new User({ username, email, password });
+    await user.save();
+
+    // Generate token
+    const token = jwt.sign(
+      { userId: user._id }, 
+      process.env.JWT_SECRET, 
+      { expiresIn: '24h' }
+    );
+
+    res.status(201).json({ 
+      message: 'User created successfully',
+      token,
+      user: {
+        id: user._id,
+        username: user.username,
+        email: user.email
+      }
+    });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
   }
-  
-  getAllProgress() {
-    return Array.from(this.progress.values());
+});
+
+app.post('/api/auth/login', async (req, res) => {
+  try {
+    const { username, password } = req.body;
+
+    // Find user
+    const user = await User.findOne({ username });
+    if (!user) {
+      return res.status(401).json({ error: 'Invalid credentials' });
+    }
+
+    // Check password
+    const isMatch = await user.comparePassword(password);
+    if (!isMatch) {
+      return res.status(401).json({ error: 'Invalid credentials' });
+    }
+
+    // Generate token
+    const token = jwt.sign(
+      { userId: user._id }, 
+      process.env.JWT_SECRET, 
+      { expiresIn: '24h' }
+    );
+
+    res.json({ 
+      message: 'Login successful',
+      token,
+      user: {
+        id: user._id,
+        username: user.username,
+        email: user.email
+      }
+    });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
   }
-}
+});
 
-// Create storage instance
-const storage = new Storage();
+// Protected route example
+app.get('/api/user/profile', auth, async (req, res) => {
+  try {
+    const user = await User.findById(req.userId).select('-password');
+    res.json(user);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
-// API Endpoints
-
-// Get all courses with progress
+// API routes
 app.get('/api/courses', (req, res) => {
-  try {
-    const courses = storage.getAllCourses();
-    const progress = storage.getAllProgress();
-    
-    // Combine courses with their progress
-    const coursesWithProgress = courses.map(course => {
-      const courseProgress = progress.find(p => p.courseId === course.id);
-      return {
-        id: course.id,
-        name: course.name,
-        progress: courseProgress ? courseProgress.percentage : 0
-      };
-    });
-    
-    res.json(coursesWithProgress);
-  } catch (error) {
-    console.error('Error getting courses:', error);
-    res.status(500).json({ error: 'Failed to get courses' });
-  }
+    // Your existing courses API logic
+    const courses = [
+        { id: 1, name: 'Web Development Fundamentals', progress: 0 },
+        { id: 2, name: 'JavaScript Advanced Concepts', progress: 0 },
+        { id: 3, name: 'React Framework Mastery', progress: 0 },
+        { id: 4, name: 'Backend Development with Node.js', progress: 0 }
+    ];
+    res.json(courses);
 });
 
-// Update progress
 app.post('/api/progress/update', (req, res) => {
-  try {
+    // Your existing progress update logic
     const { courseId, percentage } = req.body;
-    
-    // Validate inputs
-    if (typeof courseId !== 'number' || courseId < 1) {
-      return res.status(400).json({ error: 'Invalid course ID' });
-    }
-    
-    if (typeof percentage !== 'number' || percentage < 0 || percentage > 100) {
-      return res.status(400).json({ error: 'Percentage must be between 0 and 100' });
-    }
-    
-    // Update progress
-    const updatedProgress = storage.updateProgress(courseId, percentage);
-    
-    res.json(updatedProgress);
-  } catch (error) {
-    console.error('Error updating progress:', error);
-    res.status(500).json({ error: 'Failed to update progress' });
-  }
+    res.json({ courseId, percentage });
 });
 
-// Serve homePage.html for the root route
+// Serve homePage.html as the main page
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../frontend/homePage.html'));
 });
 
-// Handle all other routes by serving the appropriate HTML file
+// Handle other routes
 app.get('/:page', (req, res) => {
     const page = req.params.page;
-    const validPages = ['homePage', 'tracker', 'fullstack', 'devOps', 'dataScience', 'dataAnalysis'];
+    const validPages = ['tracker', 'fullstack', 'devOps', 'dataScience', 'dataAnalysis'];
     
     if (validPages.includes(page)) {
         res.sendFile(path.join(__dirname, `../frontend/${page}.html`));
     } else {
-        // If the page doesn't exist, redirect to homePage
+        // Redirect to home page if page doesn't exist
         res.redirect('/');
     }
 });
 
 // Start server
 app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+    console.log(`Server running at http://localhost:${PORT}`);
+}); 

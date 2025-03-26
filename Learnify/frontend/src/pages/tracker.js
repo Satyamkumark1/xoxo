@@ -19,12 +19,14 @@ async function initApp() {
   try {
     // Try to fetch courses from the server
     const serverCourses = await fetchCourses();
-    courses = serverCourses;
-    
-    // Save courses to local storage
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(courses));
+    if (serverCourses && serverCourses.length > 0) {
+      courses = serverCourses;
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(courses));
+    } else {
+      throw new Error('No courses received from server');
+    }
   } catch (error) {
-    console.error('Error fetching courses from server:', error);
+    console.warn('Falling back to local storage:', error);
     
     // Fall back to local storage if available
     const storedCourses = localStorage.getItem(STORAGE_KEY);
@@ -43,11 +45,18 @@ async function initApp() {
 
 // Fetch courses from the server
 async function fetchCourses() {
-  const response = await fetch('/api/courses');
-  if (!response.ok) {
-    throw new Error('Failed to fetch courses');
+  try {
+    const response = await fetch(`${API_BASE_URL}/courses`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    console.log('Fetched courses:', data); // Debug log
+    return data;
+  } catch (error) {
+    console.error('Error fetching courses:', error);
+    throw error;
   }
-  return await response.json();
 }
 
 // Default courses as a fallback
@@ -76,18 +85,17 @@ function renderCourses() {
 function createCourseCard(course) {
   const card = courseCardTemplate.content.cloneNode(true);
   
-  // Set course title
   card.querySelector('.course-title').textContent = course.name;
   
-  // Set progress value and bar
   const progressValue = card.querySelector('.progress-value');
   const progressBar = card.querySelector('.progress-bar');
-  progressValue.textContent = `${course.progress}%`;
-  progressBar.style.width = `${course.progress}%`;
-  
-  // Handle progress update
   const progressInput = card.querySelector('.progress-input');
   const updateButton = card.querySelector('.update-button');
+  
+  // Set initial values
+  progressValue.textContent = `${course.progress}%`;
+  progressBar.style.width = `${course.progress}%`;
+  progressInput.value = course.progress;
   
   updateButton.addEventListener('click', async () => {
     const newProgress = parseInt(progressInput.value);
@@ -98,24 +106,19 @@ function createCourseCard(course) {
     }
     
     try {
-      const response = await fetch(`${API_BASE_URL}/progress/update`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          courseId: course.id,
-          percentage: newProgress
-        })
-      });
+      const updatedProgress = await updateCourseProgress(course.id, newProgress);
       
-      if (!response.ok) {
-        throw new Error('Failed to update progress');
-      }
-      
-      const updatedProgress = await response.json();
+      // Update the UI
       progressValue.textContent = `${updatedProgress.percentage}%`;
       progressBar.style.width = `${updatedProgress.percentage}%`;
+      
+      // Update local storage
+      const updatedCourses = courses.map(c => 
+        c.id === course.id ? {...c, progress: updatedProgress.percentage} : c
+      );
+      courses = updatedCourses;
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(courses));
+      
       showToast('Success', 'Progress updated successfully');
     } catch (error) {
       showToast('Error', 'Failed to update progress', true);
@@ -135,6 +138,33 @@ function showToast(title, message, isError = false) {
   setTimeout(() => {
     toast.classList.add('hidden');
   }, 3000);
+}
+
+// Update the progress update function
+async function updateCourseProgress(courseId, newProgress) {
+  try {
+    const response = await fetch(`${API_BASE_URL}/progress/update`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        courseId: courseId,
+        percentage: newProgress
+      })
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    console.log('Progress updated:', data); // Debug log
+    return data;
+  } catch (error) {
+    console.error('Error updating progress:', error);
+    throw error;
+  }
 }
 
 // Initialize the app when the DOM is loaded
