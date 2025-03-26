@@ -1,5 +1,7 @@
+import config from '../config.js';
+
 // API endpoints
-const API_BASE_URL = 'http://localhost:3000/api';
+const API_BASE_URL = config.API_URL;
 
 // DOM Elements
 const coursesContainer = document.getElementById('courses-container');

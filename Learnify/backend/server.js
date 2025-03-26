@@ -10,13 +10,17 @@ const auth = require('./middleware/auth');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI)
+// Update MongoDB connection
+const MONGODB_URI = process.env.MONGODB_URI || 'your_mongodb_atlas_uri';
+
+mongoose.connect(MONGODB_URI)
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error('MongoDB connection error:', err));
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: ['https://your-netlify-app.netlify.app', 'http://localhost:3000']
+}));
 app.use(express.json());
 
 // Serve static files from the frontend directory
@@ -128,25 +132,25 @@ app.post('/api/progress/update', (req, res) => {
     res.json({ courseId, percentage });
 });
 
-// Serve homePage.html as the main page
+// Serve index.html as the main page
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../frontend/homePage.html'));
+    res.sendFile(path.join(__dirname, '../frontend/index.html'));
 });
 
 // Handle other routes
 app.get('/:page', (req, res) => {
     const page = req.params.page;
-    const validPages = ['tracker', 'fullstack', 'devOps', 'dataScience', 'dataAnalysis'];
+    const validPages = ['homePage', 'tracker', 'fullstack', 'devOps', 'dataScience', 'dataAnalysis'];
     
     if (validPages.includes(page)) {
         res.sendFile(path.join(__dirname, `../frontend/${page}.html`));
     } else {
-        // Redirect to home page if page doesn't exist
+        // Redirect to index page if page doesn't exist
         res.redirect('/');
     }
 });
 
 // Start server
-app.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server running on port ${PORT}`);
 }); 
