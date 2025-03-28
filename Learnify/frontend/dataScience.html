@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title style="color: rgb(33, 33, 219);">Learnify</title>
+    <title>Data Science Complete Roadmap</title>
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="./public/styles/dataScience.css">
+    <link rel="stylesheet" href="./dataScience.css">
 </head>
 <body class="font-sans bg-gray-50 text-gray-800">
     <!-- Header Component -->
     <header class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <h1 class="text-2xl font-bold text-primary">
-                <span class="hidden md:inline" style="color: rgb(28, 98, 228);">Learnify </span> 
+            <h1 class="text-2xl font-bold text-primary flex items-center">
+                <img src="./public/assets/logo.png" alt="Learnify Logo" class="logo-img" style="width: 40px; height: 40px; margin-right: 8px;">
+                <span class="hidden md:inline"></span> <span class="text-blue-500">Learnify</span> <span class="text-primary">Roadmaps</span>
             </h1>
             <nav class="hidden md:block">
                 <ul class="flex space-x-6">
@@ -51,7 +52,7 @@
                 <h1 class="text-4xl md:text-5xl font-bold mb-4">Data Science Complete Roadmap</h1>
                 <p class="text-xl opacity-90 mb-8">Your comprehensive guide to becoming a data scientist with free resources at every step</p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="#beginner" class="bg-white text-primary font-medium py-2 px-6 rounded-lg shadow-md hover:shadow-lg transition" style="color: black;">Start Learning</a>
+                    <a href="#beginner" class="bg-white text-primary font-medium py-2 px-6 rounded-lg shadow-md hover:shadow-lg transition">Start Learning</a>
                     <a href="#resources" class="bg-transparent border-2 border-white text-white font-medium py-2 px-6 rounded-lg hover:bg-white hover:text-primary transition">Browse Resources</a>
                 </div>
             </div>
@@ -186,45 +187,10 @@
         </section>
     </div>
 
-    
+    <!-- Resources Section -->
+  
 
-    Progress Tracking
-    <section class="py-12 bg-primary bg-gradient-to-r from-indigo-700 to-indigo-800 text-white">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-2xl font-bold mb-6">Track Your Data Science Journey</h2>
-                <p class="text-lg mb-8 opacity-90">Use our simple checklist to track your progress through the roadmap.</p>
-                
-                <div class="bg-white/10 rounded-lg p-6 backdrop-blur-sm">
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <!-- Beginner Progress -->
-                        <div>
-                            <h3 class="font-semibold text-lg mb-3">Beginner</h3>
-                            <div class="space-y-2 text-left" id="beginner-progress">
-                                <!-- Will be loaded by JavaScript -->
-                            </div>
-                        </div>
-                        
-                        <!-- Intermediate Progress -->
-                        <div>
-                            <h3 class="font-semibold text-lg mb-3">Intermediate</h3>
-                            <div class="space-y-2 text-left" id="intermediate-progress">
-                                <!-- Will be loaded by JavaScript -->
-                            </div>
-                        </div>
-                        
-                        <!-- Advanced Progress -->
-                        <div>
-                            <h3 class="font-semibold text-lg mb-3">Advanced</h3>
-                            <div class="space-y-2 text-left" id="advanced-progress">
-                                <!-- Will be loaded by JavaScript -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    
 
     <!-- Community Section -->
     <section class="py-16 bg-white">
@@ -239,7 +205,7 @@
                     </div>
                     <h3 class="text-xl font-semibold mb-2">Discord Community</h3>
                     <p class="text-gray-600 mb-4">Join our active Discord server to discuss projects, share resources, and get help.</p>
-                    <a href="https://discord.gg/datascience" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-primary font-medium hover:text-indigo-800">
+                    <a href="https://discord.com/invite/UYNaemm" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-primary font-medium hover:text-indigo-800">
                         Join Discord
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -253,7 +219,7 @@
                     </div>
                     <h3 class="text-xl font-semibold mb-2">YouTube Channel</h3>
                     <p class="text-gray-600 mb-4">Watch tutorials, code-alongs, and interviews with data science professionals.</p>
-                    <a href="https://youtube.com/c/datascience" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-primary font-medium hover:text-indigo-800">
+                    <a href="http://www.youtube.com/@edurekaIN" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-primary font-medium hover:text-indigo-800">
                         Subscribe
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -267,7 +233,7 @@
                     </div>
                     <h3 class="text-xl font-semibold mb-2">GitHub Repository</h3>
                     <p class="text-gray-600 mb-4">Access code examples, notebooks, and contribute to our open-source projects.</p>
-                    <a href="https://github.com/datascience-roadmap" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-primary font-medium hover:text-indigo-800">
+                    <a href="https://github.com/academic/awesome-datascience" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-primary font-medium hover:text-indigo-800">
                         Explore GitHub
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -325,7 +291,7 @@
     </footer>
 
     <!-- Custom JavaScript -->
-   <script src="/Learnify/frontend/src/pages/datascience_main.js"></script>
-   <script src="/Learnify/frontend/src/pages/dataScience_data.js"></script>
+    <script src="dataScienceData.js"></script>
+    <script src="dataScience.js"></script>
 </body>
 </html>

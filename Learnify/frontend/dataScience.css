@@ -827,3 +827,17 @@ h1, h2, h3, h4, h5, h6 {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }
+
+/* Define color variables for consistency */
+:root {
+    --blue-500: rgb(22, 72, 210);
+}
+
+/* Remove redundant class definition */
+.text-blue-500 {
+    color: var(--blue-500);
+}
+
+.text-blue-500{
+    color: rgb(15, 96, 218);
+}

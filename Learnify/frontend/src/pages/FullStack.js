@@ -1,26 +1,65 @@
 // Mobile menu toggle
-const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-const mobileMenu = document.getElementById('mobile-menu');
-const mobileMenuIcon = mobileMenuToggle.querySelector('i');
+const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+const mobileMenu = document.getElementById('mobileMenu');
 
-mobileMenuToggle.addEventListener('click', () => {
+function toggleMobileMenu() {
   mobileMenu.classList.toggle('active');
+  const menuIcon = mobileMenuToggle.querySelector('.menu-icon');
+  
   if (mobileMenu.classList.contains('active')) {
-    mobileMenuIcon.classList.remove('fa-bars');
-    mobileMenuIcon.classList.add('fa-times');
+    menuIcon.style.background = 'transparent';
+    menuIcon.style.transform = 'rotate(180deg)';
+    menuIcon.previousElementSibling?.style.transform = 'rotate(45deg) translate(6px, 6px)';
+    menuIcon.nextElementSibling?.style.transform = 'rotate(-45deg) translate(6px, -6px)';
   } else {
-    mobileMenuIcon.classList.remove('fa-times');
-    mobileMenuIcon.classList.add('fa-bars');
+    menuIcon.style.background = '';
+    menuIcon.style.transform = '';
+    menuIcon.previousElementSibling?.style.transform = '';
+    menuIcon.nextElementSibling?.style.transform = '';
   }
-});
+}
 
-// Close mobile menu when clicking on links
-const mobileLinks = document.querySelectorAll('.mobile-nav-link');
-mobileLinks.forEach(link => {
+mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+
+// Add active state to nav links based on scroll position
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+function setActiveLink() {
+  const scrollPosition = window.scrollY + 100;
+
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.offsetHeight;
+    const sectionId = section.getAttribute('id');
+    
+    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${sectionId}`) {
+          link.classList.add('active');
+        }
+      });
+      
+      mobileNavLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${sectionId}`) {
+          link.classList.add('active');
+        }
+      });
+    }
+  });
+}
+
+window.addEventListener('scroll', setActiveLink);
+window.addEventListener('load', setActiveLink);
+
+// Close mobile menu when clicking links
+mobileNavLinks.forEach(link => {
   link.addEventListener('click', () => {
     mobileMenu.classList.remove('active');
-    mobileMenuIcon.classList.remove('fa-times');
-    mobileMenuIcon.classList.add('fa-bars');
+    toggleMobileMenu();
   });
 });
 

@@ -41,6 +41,7 @@ const categories = [
     }
   ];
   
+  
   // DOM Elements
   const categoryCardsContainer = document.getElementById('categoryCards');
   const mobileMenuToggle = document.getElementById('mobileMenuToggle');
@@ -74,16 +75,21 @@ const categories = [
       card.innerHTML = `
         <div class="category-image">
           <img src="${category.image}" alt="${category.title}">
+          <span class="category-tag ${category.tagClass}">${category.tag}</span>
         </div> 
         <div class="category-content">
-          <span class="category-tag ${category.tagClass}">${category.tag}</span>
           <h3 class="category-title">${category.title}</h3>
           <p class="category-description">${category.description}</p>
-          <p class="category-quote">${category.quote}</p>
-          <a href="${category.link}" class="category-link ${category.linkClass}">
-            Explore resources
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </a>
+          <div class="category-footer">
+            <p class="category-quote">${category.quote}</p>
+            <a href="${category.link}" class="category-link ${category.linkClass}">
+              Explore resources
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14"/>
+                <path d="m12 5 7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
         </div>
       `;
       categoryCardsContainer.appendChild(card);

@@ -13,43 +13,76 @@
     <div id="root">
       <!-- Header -->
       <header class="sticky-header">
-        <div class="container header-container">
-          <div class="logo">
-            <div class="logo-icon">
-              <i class="fas fa-graduation-cap"></i>
+        <div class="container">
+          <div class="navbar-content">
+            <div class="logo-wrapper">
+              <div class="logo-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="nav-logo-svg">
+                  <path fill="currentColor" d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
+                </svg>
+              </div>
+              <a href="./" class="logo">
+                Learn<span class="logo-highlight">ify</span>
+                <span class="logo-dot">.</span>
+              </a>
             </div>
-            <h1 class="logo-text">
-              <span class="text-primary">Learnify</span>
-            </h1>
+            
+            <nav class="nav-links">
+              <a href="#hero" class="nav-link">
+                <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path fill="none" stroke="currentColor" stroke-width="2" d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
+                </svg>
+                Overview
+              </a>
+              <a href="#roadmap" class="nav-link">
+                <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path fill="none" stroke="currentColor" stroke-width="2" d="M9 18l6-6-6-6"/>
+                </svg>
+                Roadmap
+              </a>
+              <a href="#frontend" class="nav-link">
+                <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path fill="none" stroke="currentColor" stroke-width="2" d="M8 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2h-3M12 11l5-5M17 6h-5v5"/>
+                </svg>
+                Frontend
+              </a>
+              <a href="#backend" class="nav-link">
+                <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path fill="none" stroke="currentColor" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+                Backend
+              </a>
+              <a href="#resources" class="nav-link">
+                <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path fill="none" stroke="currentColor" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                </svg>
+                Resources
+              </a>
+            </nav>
+            
+            <div class="auth-buttons">
+              <button class="btn btn-outline" id="loginBtn">Log in</button>
+              <button class="btn btn-primary" id="signupBtn">Sign up</button>
+            </div>
+            
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+              <span class="menu-icon"></span>
+            </button>
           </div>
-          
-          <!-- Desktop Navigation -->
-          <nav class="desktop-nav">
-            <ul class="nav-links">
-              <li><a href="#hero" class="nav-link">Home</a></li>
-              <li><a href="#roadmap" class="nav-link">Roadmap</a></li>
-              <li><a href="#frontend" class="nav-link">Frontend</a></li>
-              <li><a href="#backend" class="nav-link">Backend</a></li>
-              <li><a href="#resources" class="nav-link">Resources</a></li>
-            </ul>
-          </nav>
-          
-          <!-- Mobile Navigation Toggle -->
-          <button id="mobile-menu-toggle" class="mobile-menu-toggle">
-            <i class="fas fa-bars"></i>
-          </button>
         </div>
         
-        <!-- Mobile Navigation Menu -->
-        <div id="mobile-menu" class="mobile-menu">
+        <!-- Mobile menu -->
+        <div class="mobile-menu" id="mobileMenu">
           <nav class="container">
-            <ul class="mobile-nav-links">
-              <li><a href="#hero" class="mobile-nav-link">Home</a></li>
-              <li><a href="#roadmap" class="mobile-nav-link">Roadmap</a></li>
-              <li><a href="#frontend" class="mobile-nav-link">Frontend</a></li>
-              <li><a href="#backend" class="mobile-nav-link">Backend</a></li>
-              <li><a href="#resources" class="mobile-nav-link">Resources</a></li>
-            </ul>
+            <a href="#hero" class="mobile-nav-link">Overview</a>
+            <a href="#roadmap" class="mobile-nav-link">Roadmap</a>
+            <a href="#frontend" class="mobile-nav-link">Frontend</a>
+            <a href="#backend" class="mobile-nav-link">Backend</a>
+            <a href="#resources" class="mobile-nav-link">Resources</a>
+            <div class="mobile-auth-buttons">
+              <button class="btn btn-outline width-full" id="mobileLoginBtn">Log in</button>
+              <button class="btn btn-primary width-full" id="mobileSignupBtn">Sign up</button>
+            </div>
           </nav>
         </div>
       </header>
@@ -552,7 +585,7 @@
                   <li><i class="fas fa-link"></i> <a href="https://youtu.be/x4rFhThSX04?si=GtfhRPfHVpyT_8Gy" target="_blank">React - The Complete Guide</a></li>
                   <li><i class="fas fa-link"></i> <a href="https://youtu.be/Oe421EPjeBE?si=attE5wZ28gzjzKC7">Node.js: The Complete Guide</a></li>
                 </ul>
-                <a href="tracker.html" class="track-progress-btn">Track Your Progress</a>
+                <a href="trackerFullstack.html" class="track-progress-btn">Track Your Progress</a>
               </div>
             </div>
             
@@ -570,7 +603,7 @@
                   <li><i class="fas fa-link"></i> <a href="https://nodejs.org/docs/latest/api/" target="_blank">Node.js Documentation</a></li>
                   <li><i class="fas fa-link"></i> <a href="https://expressjs.com/">Express.js Guide</a></li>
                 </ul>
-                <a href="tracker.html" class="track-progress-btn">Track Your Progress</a>
+                <a href="trackerFullstack.html" class="track-progress-btn">Track Your Progress</a>
               </div>
             </div>
             
@@ -588,7 +621,7 @@
                   <li><i class="fas fa-link"></i> <a href=" https://www.youtube.com/@WebDevSimplified" target="_blank">Web Dev Simplified</a></li>
                   <li><i class="fas fa-link"></i> <a href="http://www.youtube.com/@freecodecamp" target="_blank">freeCodeCamp</a></li>
                 </ul>
-                <a href="tracker.html" class="track-progress-btn">Track Your Progress</a>
+                <a href="trackerFullstack.html" class="track-progress-btn">Track Your Progress</a>
               </div>
             </div>
             
@@ -606,7 +639,7 @@
                   <li><i class="fas fa-link"></i> <a href="https://www.amazon.in/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882">Clean Code</a></li>
                   <li><i class="fas fa-link"></i> <a href="https://www.amazon.in/Road-Learn-React-Pragmatic-React-Js/dp/172004399X/ref=pd_lpo_d_sccl_2/261-1111308-3353223?pd_rd_w=CDE1o&content-id=amzn1.sym.e0c8139c-1aa1-443c-af8a-145a0481f27c&pf_rd_p=e0c8139c-1aa1-443c-af8a-145a0481f27c&pf_rd_r=5FRFG757Y0BV5RB5DGEH&pd_rd_wg=wiint&pd_rd_r=f3cd776c-e9fc-4759-8e5c-7bca42aa9f71&pd_rd_i=172004399X&psc=1">Learning React</a></li>
                 </ul>
-                <a href="tracker.html" class="track-progress-btn">Track Your Progress</a>
+                <a href="trackerFullstack.html" class="track-progress-btn">Track Your Progress</a>
               </div>
             </div>
             
